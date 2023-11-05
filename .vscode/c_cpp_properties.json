@@ -18,6 +18,7 @@
             "includePath": [
                 "/home/zekousek/.arduino15/packages/arduino/hardware/avr/1.8.6/cores/arduino",
                 "/home/zekousek/.arduino15/packages/arduino/hardware/avr/1.8.6/variants/standard",
+                "/home/zekousek/Arduino/libraries/IRremote/src",
                 "/home/zekousek/Arduino/libraries/FastLED/src",
                 "/home/zekousek/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/lib/gcc/avr/7.3.0/include",
                 "/home/zekousek/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/lib/gcc/avr/7.3.0/include-fixed",

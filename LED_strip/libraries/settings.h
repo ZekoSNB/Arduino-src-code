@@ -40,9 +40,9 @@
 #define FADE3 6
 #define FADE7 7
 
-#define RED_PIN 3
-#define GREEN_PIN 5
-#define BLUE_PIN 9
+int RED_PIN;
+int GREEN_PIN;
+int BLUE_PIN;
 
 float brightness_diff = 25;
 uint8_t red = 180;
@@ -51,7 +51,19 @@ uint8_t blue = 255;
 int speed = 1000;
 uint8_t count;
 
+void init(int red_pin, int green_pin, int blue_pin){
+    RED_PIN = red_pin;
+    GREEN_PIN = green_pin;
+    BLUE_PIN = blue_pin;
+    pinMode(OUTPUT, RED_PIN);
+    pinMode(OUTPUT, GREEN_PIN);
+    pinMode(OUTPUT, BLUE_PIN);
+}
+
 void set_color(uint8_t R, uint8_t G, uint8_t B){
+    red = R;
+    green = G;
+    blue = B;
     analogWrite(RED_PIN, R);
     analogWrite(GREEN_PIN, G);
     analogWrite(BLUE_PIN, B);
@@ -69,7 +81,7 @@ void flashing(){
 void on_off(){
     if (count % 2 == 1){
         count++;
-        set_color(255, 255, 255);
+        set_color(red, green, blue);
     }
 
     else{
@@ -81,7 +93,7 @@ void on_off(){
     
 }
 
-void command_receive(int command){
+void command_receive(uint16_t command){
 
     switch (command){
 
@@ -165,11 +177,12 @@ void command_receive(int command){
         set_color(255, 255, 255);
         break;
     
-    case FLASH:
-        flashing();
-        break;
+    // case FLASH:
+    //     flashing();
+    //     break;
 
     default:
+        set_color(0,0,0);
         break;
     }
 }
