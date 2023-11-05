@@ -31,7 +31,7 @@ void loop()
 
 
   fill_palette(leds, NUM_LEDS, pallete_index, 255/NUM_LEDS, pal, 255, LINEARBLEND);
-  EVERY_N_MILLISECONDS(60){
+  EVERY_N_MILLISECONDS(1){
     pallete_index++;
   }
 
