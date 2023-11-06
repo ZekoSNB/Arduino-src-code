@@ -2,7 +2,6 @@
 #define PLAY_PAUSE 65
 #define BRIGHTNESS_UP 92
 #define BRIGHTNESS_DOWN 93
-
 #define RED 88
 #define GREEN 89
 #define BLUE 69
@@ -23,14 +22,12 @@
 #define YELLOW 24
 #define DARK_GREEN_AQUA 25
 #define BRIGHT_PURPLE 26
-
 #define ADD_RED 20
 #define SUBTRACT_RED 16
 #define ADD_GREEN 21
 #define SUBTRACT_GREEN 17
 #define ADD_BLUE 22
 #define SUBTRACT_BLUE 18
-
 #define QUICKER 23
 #define SLOWER 19
 #define AUTO 15
@@ -44,11 +41,11 @@ int RED_PIN;
 int GREEN_PIN;
 int BLUE_PIN;
 
-float brightness_diff = 25;
+int brightness_diff = 25;
+
 uint8_t red = 180;
 uint8_t green = 0;
 uint8_t blue = 255;
-int speed = 1000;
 uint8_t count;
 
 void init(int red_pin, int green_pin, int blue_pin){
@@ -67,15 +64,6 @@ void set_color(uint8_t R, uint8_t G, uint8_t B){
     analogWrite(RED_PIN, R);
     analogWrite(GREEN_PIN, G);
     analogWrite(BLUE_PIN, B);
-}
-
-void flashing(){
-    while(true){
-        set_color(255,255,255);
-        delay(speed);
-        set_color(0,0,0);
-        delay(speed);
-    }
 }
 
 void on_off(){
@@ -99,8 +87,72 @@ void command_receive(uint16_t command){
 
     case ON_OFF:
         on_off();
-        
         break;
+
+    case ADD_RED:
+        if (red + brightness_diff > 255){
+            break;
+        }
+        red = red + brightness_diff;
+        set_color(red, green, blue);
+    
+    case SUBTRACT_RED:
+        if (red - brightness_diff < 0) {
+            break;
+        }
+        red = red - brightness_diff;
+        set_color(red,green, blue);
+    
+    case ADD_GREEN:
+        if (green + brightness_diff > 255){
+            break;
+        }
+        green = green + brightness_diff;
+        set_color(red, green, blue);
+    
+    case SUBTRACT_GREEN:
+        if (green - brightness_diff < 0) {
+            break;
+        }
+        green = green - brightness_diff;
+        set_color(red,green, blue);
+
+    case ADD_BLUE:
+        if (blue + brightness_diff > 255){
+            break;
+        }
+        blue = blue + brightness_diff;
+        set_color(red, green, blue);
+    
+    case SUBTRACT_BLUE:
+        if (blue - brightness_diff < 0) {
+            break;
+        }
+        blue = blue - brightness_diff;
+        set_color(red,green, blue);
+
+    case BRIGHTNESS_UP:
+        if (red + brightness_diff > 255 || green + brightness_diff > 255 || blue + brightness_diff > 255){
+            break;
+        }
+
+        red = red + brightness_diff;
+        green = green + brightness_diff;
+        blue = blue + brightness_diff;
+        set_color(red, green, blue);
+        break;
+
+    case BRIGHTNESS_DOWN:
+        if (red - brightness_diff < 0 || green - brightness_diff < 0 || blue - brightness_diff < 0){
+            break;
+        }
+
+        red = red - brightness_diff;
+        green = green - brightness_diff;
+        blue = blue - brightness_diff;
+        set_color(red, green, blue);
+        break;
+
 
     case RED:
         set_color(255, 0, 0);
@@ -176,10 +228,6 @@ void command_receive(uint16_t command){
     case WHITE_BLUE2:
         set_color(255, 255, 255);
         break;
-    
-    // case FLASH:
-    //     flashing();
-    //     break;
 
     default:
         set_color(0,0,0);

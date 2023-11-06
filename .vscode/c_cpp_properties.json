@@ -3,7 +3,7 @@
     "configurations": [
         {
             "name": "Arduino",
-            "compilerPath": "/home/zekousek/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-g++",
+            "compilerPath": "/home/zeko/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-g++",
             "compilerArgs": [
                 "-w",
                 "-std=gnu++11",
@@ -16,16 +16,16 @@
             ],
             "intelliSenseMode": "gcc-x64",
             "includePath": [
-                "/home/zekousek/.arduino15/packages/arduino/hardware/avr/1.8.6/cores/arduino",
-                "/home/zekousek/.arduino15/packages/arduino/hardware/avr/1.8.6/variants/standard",
-                "/home/zekousek/Arduino/libraries/IRremote/src",
-                "/home/zekousek/Arduino/libraries/FastLED/src",
-                "/home/zekousek/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/lib/gcc/avr/7.3.0/include",
-                "/home/zekousek/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/lib/gcc/avr/7.3.0/include-fixed",
-                "/home/zekousek/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/avr/include"
+                "/home/zeko/.arduino15/packages/arduino/hardware/avr/1.8.6/cores/arduino",
+                "/home/zeko/.arduino15/packages/arduino/hardware/avr/1.8.6/variants/standard",
+                "/home/zeko/Arduino/libraries/IRremote/src",
+                "/home/zeko/Arduino/libraries/FastLED/src",
+                "/home/zeko/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/lib/gcc/avr/7.3.0/include",
+                "/home/zeko/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/lib/gcc/avr/7.3.0/include-fixed",
+                "/home/zeko/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/avr/include"
             ],
             "forcedInclude": [
-                "/home/zekousek/.arduino15/packages/arduino/hardware/avr/1.8.6/cores/arduino/Arduino.h"
+                "/home/zeko/.arduino15/packages/arduino/hardware/avr/1.8.6/cores/arduino/Arduino.h"
             ],
             "cStandard": "c11",
             "cppStandard": "c++11",
